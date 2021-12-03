@@ -1,0 +1,2 @@
+Part one: 150
+Part two: 900
