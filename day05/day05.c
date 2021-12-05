@@ -130,6 +130,10 @@ int part_one(FILE *fp) {
         }
     }
 
+    for (int i=0; i<=x_max; i++) {
+        free(grid[i]);
+    }
+    free(grid);
     return n;
 }
 
@@ -203,6 +207,11 @@ int part_two(FILE *fp) {
             }
         }
     }
+
+    for (int i=0; i<=x_max; i++) {
+        free(grid[i]);
+    }
+    free(grid);
 
     return n;
 }

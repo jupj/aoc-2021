@@ -5,7 +5,7 @@ INPUTFILE = input.txt
 TESTFILE = test_input.txt
 EXPETCTED = test_expected.txt
 CC = gcc
-CFLAGS = -Wall
+CFLAGS = -Wall -Werror -g
 BUILD = ../build/
 
 default: run
@@ -17,6 +17,10 @@ test: $(BIN)
 .PHONY: run
 run: $(BIN)
 	@$(BIN) $(INPUTFILE)
+
+.PHONY: check
+check: $(BIN)
+	valgrind --leak-check=yes $(BIN) $(INPUTFILE)
 
 $(BIN): $(SOURCES)
 	@mkdir -p $(BUILD)
