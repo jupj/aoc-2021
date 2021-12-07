@@ -19,4 +19,5 @@ if [ -d "$prevdir" ]; then
     sed -i "s/$prevdir/$daydir/g" "$daydir/Makefile"
 fi
 
-go run get-input.go > "$daydir/input.txt"
+daynr=$(date +"%d" | sed "s/^0//") # Strip prefix 0 from day number
+curl --cookie .cookie "https://adventofcode.com/2021/day/$daynr/input" > "$daydir/input.txt"
