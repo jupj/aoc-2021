@@ -21,3 +21,5 @@ fi
 
 daynr=$(date +"%d" | sed "s/^0//") # Strip prefix 0 from day number
 curl --cookie .cookie "https://adventofcode.com/2021/day/$daynr/input" > "$daydir/input.txt"
+
+./getdesc.sh "$daynr" > "$daydir/description.md"
