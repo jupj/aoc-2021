@@ -4,7 +4,7 @@ daydir=$(date +"day%d")
 prevdir=$(date -d yesterday +"day%d")
 
 if [ -d "$daydir" ]; then
-    echo "Error: $daydir exists already"
+    >&2 echo "Error: $daydir exists already"
     exit 1
 fi
 
@@ -20,6 +20,6 @@ if [ -d "$prevdir" ]; then
 fi
 
 daynr=$(date +"%d" | sed "s/^0//") # Strip prefix 0 from day number
-curl --cookie .cookie "https://adventofcode.com/2021/day/$daynr/input" > "$daydir/input.txt"
+curl -sS --cookie .cookie "https://adventofcode.com/2021/day/$daynr/input" > "$daydir/input.txt"
 
 ./getdesc.sh "$daynr" > "$daydir/description.md"
