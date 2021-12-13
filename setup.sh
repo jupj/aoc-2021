@@ -1,7 +1,9 @@
 #!/bin/bash
 
-daydir=$(date +"day%d")
-prevdir=$(date -d yesterday +"day%d")
+basedir=$(dirname $0)
+sessionfile="$basedir/.cookie"
+daydir="$basedir/$(date +"day%d")"
+prevdir="$basedir/$(date -d yesterday +"day%d")"
 
 daynr=$(date +"%d" | sed "s/^0//") # Strip prefix 0 from day number
 
@@ -27,11 +29,11 @@ if ! [ -d "$daydir" ]; then
     echo "Part two: _" >> "$daydir/test_expected.txt"
 
     # Write input.txt
-    curl -sS --cookie .cookie "https://adventofcode.com/2021/day/$daynr/input" > "$daydir/input.txt"
+    curl -sS --cookie "$sessionfile" "https://adventofcode.com/2021/day/$daynr/input" > "$daydir/input.txt"
 fi
 
 # Update description.md
-curl -sS --cookie .cookie "https://adventofcode.com/2021/day/$daynr" | \
+curl -sS --cookie "$sessionfile" "https://adventofcode.com/2021/day/$daynr" | \
     pandoc -f html -t markdown | \
     awk '
         inmain          { print }
