@@ -6,6 +6,7 @@ daydir="$basedir/$(date +"day%d")"
 prevdir="$basedir/$(date -d yesterday +"day%d")"
 
 daynr=$(date +"%d" | sed "s/^0//") # Strip prefix 0 from day number
+prevnr=$(date -d yesterday +"%d" | sed "s/^0//")
 
 if ! [ -d "$daydir" ]; then
     # Initialize only once
@@ -17,7 +18,7 @@ if ! [ -d "$daydir" ]; then
 
         # Rename filename to current day
         mv "$daydir/$prevdir.c" "$daydir/$daydir.c"
-        sed -i "s/$prevdir/$daydir/g" "$daydir/Makefile"
+        sed -i "s/day$prevnr/day$daynr/g" "$daydir/Makefile"
 
         # Clear test_input.txt
         rm "$daydir/test_input.txt"
