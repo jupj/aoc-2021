@@ -167,8 +167,6 @@ Decode the structure of your hexadecimal-encoded BITS transmission;
 
 Your puzzle answer was `883`.
 
-The first half of this puzzle is complete! It provides one gold star: \*
-
 \-\-- Part Two \-\-- {#part2}
 --------------------
 
@@ -224,12 +222,17 @@ For example:
 *What do you get if you evaluate the expression represented by your
 hexadecimal-encoded BITS transmission?*
 
-Answer:
+Your puzzle answer was `1675198555015`.
 
-Although it hasn\'t changed, you can still [get your puzzle
-input](16/input).
+Both parts of this puzzle are complete! They provide two gold stars:
+\*\*
+
+At this point, you should [return to your Advent calendar](/2021) and
+try another puzzle.
+
+If you still want to see it, you can [get your puzzle input](16/input).
 
 You can also [\[Share[on
-[Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22Packet+Decoder%22+%2D+Day+16+%2D+Advent+of+Code+2021&url=https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F16&related=ericwastl&hashtags=AdventOfCode)
+[Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+%22Packet+Decoder%22+%2D+Day+16+%2D+Advent+of+Code+2021&url=https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F16&related=ericwastl&hashtags=AdventOfCode)
 [Mastodon](javascript:void(0);)]{.share-content}\]]{.share} this puzzle.
 :::
