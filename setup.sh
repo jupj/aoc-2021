@@ -2,17 +2,29 @@
 
 basedir=$(dirname $0)
 sessionfile="$basedir/.cookie"
-daydir="$basedir/$(date +"day%d")"
-prevdir="$basedir/$(date -d yesterday +"day%d")"
 
-daynr=$(date +"%d" | sed "s/^0//") # Strip prefix 0 from day number
-prevnr=$(date -d yesterday +"%d" | sed "s/^0//")
+daynr=$1
+
+if [ -z "$daynr" ]; then
+    # Default: today
+    daynr=$(date +"%d" | sed "s/^0//") # Strip prefix 0 from day number
+fi
+
+prevnr=$(echo "$daynr - 1" | bc)
+
+echo "Setting up day $daynr"
+
+daydir="$basedir/$(date -d "2021-12-$daynr" +"day%d")"
+prevdir=""
+if [ $prevnr -gt 0 ]; then
+    prevdir="$basedir/$(date -d "2021-12-$prevnr" +"day%d")"
+fi
 
 if ! [ -d "$daydir" ]; then
     # Initialize only once
     mkdir "$daydir"
 
-    if [ -d "$prevdir" ]; then
+    if [ -n $prevdir ] && [ -d "$prevdir" ]; then
         # Copy files
         cp "$prevdir"/* "$daydir"
 
