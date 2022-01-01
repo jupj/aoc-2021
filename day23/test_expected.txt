@@ -1,0 +1,2 @@
+Part one: 12521
+Part two: 40475
