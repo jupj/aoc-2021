@@ -33,7 +33,7 @@ if ! [ -d "$daydir" ]; then
         sed -i "s/day$prevnr/day$daynr/g" "$daydir/Makefile"
 
         # Clear test_input.txt
-        rm "$daydir/test_input.txt"
+        rm -f "$daydir/test_input.txt"
         touch "$daydir/test_input.txt"
     fi
 
